@@ -46,67 +46,67 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
                 KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,  KC_F12,
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-              KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,KC_LANG1, KC_TRNS, KC_TRNS, KC_TRNS
+              _______, _______, _______, _______, _______, _______, _______, _______,KC_LANG1, _______, _______, _______
         //  `--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------'
     ),
     [_MOVE] = LAYOUT_planck_grid(
         // Cursor and page transition
         //  ,--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------.
-               KC_ESC,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO, KC_PGUP,   S_TAB,  KC_TAB, KC_PGDN, KC_RCTL, KC_BSPC,
+               KC_ESC, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PGUP,   S_TAB,  KC_TAB, KC_PGDN, KC_RCTL, KC_BSPC,
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-              KC_TRNS,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO, KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT,ESC_EISU, KC_RALT,
+              _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT,ESC_EISU, KC_RALT,
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-              KC_TRNS,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,  KC_DEL, KC_HOME,  KC_END, KC_BSPC, KC_RSFT,   KC_NO,
+              _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  KC_DEL, KC_HOME,  KC_END, KC_BSPC, KC_RSFT, XXXXXXX,
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-              KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
+              _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
         //  `--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------'
     ),
     [_SYMBOL] = LAYOUT_planck_grid(
         // Structural symbols
         //  ,--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------.
-               KC_ESC,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,  KC_GRV, KC_QUOT, KC_DQUO, KC_LPRN, KC_RPRN, KC_BSPC,
+               KC_ESC, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  KC_GRV, KC_QUOT, KC_DQUO, KC_LPRN, KC_RPRN, KC_BSPC,
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-              KC_TRNS,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO, KC_LBRC, KC_LCBR, KC_RCBR, KC_RBRC,   KC_NO,
+              _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_LBRC, KC_LCBR, KC_RCBR, KC_RBRC, XXXXXXX,
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-              KC_TRNS,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_LT,   KC_GT,   KC_NO,   KC_NO,
+              _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,   KC_LT,   KC_GT, XXXXXXX, XXXXXXX,
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-              KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
+              _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
         //  `--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------'
     ),
     [_TENKEY] = LAYOUT_planck_grid(
         // Ten key
         //  ,--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------.
-              KC_TRNS,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO, KC_PSLS,   KC_P7,   KC_P8,   KC_P9, KC_PAST, KC_BSPC,
+              _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PSLS,   KC_P7,   KC_P8,   KC_P9, KC_PAST, KC_BSPC,
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-              KC_TRNS,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO, KC_PMNS,   KC_P4,   KC_P5,   KC_P6, KC_PPLS,   KC_NO,
+              _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PMNS,   KC_P4,   KC_P5,   KC_P6, KC_PPLS, XXXXXXX,
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-              KC_TRNS,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO, KC_NLCK,   KC_P1,   KC_P2,   KC_P3, KC_PEQL,   KC_NO,
+              _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_NLCK,   KC_P1,   KC_P2,   KC_P3, KC_PEQL, XXXXXXX,
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-              KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,   KC_P0, KC_COMM, KC_PDOT, KC_PENT,   MO(6)
+              _______, _______, _______, _______, _______, _______, _______,   KC_P0, KC_COMM, KC_PDOT, KC_PENT,   MO(6)
         //  `--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------'
     ),
     [_SPECIAL] = LAYOUT_planck_grid(
         // Special controls
         //  ,--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------.
-                KC_NO, RGB_SAD, RGB_HUD, RGB_HUI, RGB_SAI, RGB_TOG,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+              XXXXXXX, RGB_SAD, RGB_HUD, RGB_HUI, RGB_SAI, RGB_TOG, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-             RGB_RMOD, RGB_SPD, RGB_VAD, RGB_VAI, RGB_SPI, RGB_MOD,   KC_NO,   KC_NO, KC_BRID, KC_BRIU,   KC_NO,   KC_NO,
+             RGB_RMOD, RGB_SPD, RGB_VAD, RGB_VAI, RGB_SPI, RGB_MOD, XXXXXXX, XXXXXXX, KC_BRID, KC_BRIU, XXXXXXX, XXXXXXX,
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-              KC_TRNS, BL_STEP,  BL_OFF,  BL_DEC,  BL_INC,   BL_ON,   KC_NO, KC_MUTE, KC_VOLD, KC_VOLU,   KC_NO,   KC_NO,
+              _______, BL_STEP,  BL_OFF,  BL_DEC,  BL_INC,   BL_ON, XXXXXXX, KC_MUTE, KC_VOLD, KC_VOLU, XXXXXXX, XXXXXXX,
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-                MO(6),   KC_NO,   KC_NO, BL_TOGG, BL_BRTG,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO, KC_TRNS
+                MO(6), XXXXXXX, XXXXXXX, BL_TOGG, BL_BRTG, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______
         //  `--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------'
     ),
     [_KEYBOARD] = LAYOUT_planck_grid(
         // Keyboard reset and music mode
         //  ,--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------.
-                RESET,   DEBUG,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+                RESET,   DEBUG, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-              KC_CAPS,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO, KC_NLCK,
+              KC_CAPS, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_NLCK,
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-                KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+              XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-              KC_TRNS,   KC_NO, LCG_SWP,  MU_MOD,  MUV_DE, MU_OFF,    MU_ON,  MUV_IN,  MU_MOD, LCG_NRM,   KC_NO, KC_TRNS
+              _______, XXXXXXX, LCG_SWP,  MU_MOD,  MUV_DE, MU_OFF,    MU_ON,  MUV_IN,  MU_MOD, LCG_NRM, XXXXXXX, _______
         //  `--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------'
     )
 };
