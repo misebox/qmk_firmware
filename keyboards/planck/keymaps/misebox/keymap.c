@@ -149,7 +149,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if (record->event.pressed) {
                 register_code(KC_LANG2);
                 unregister_code(KC_LANG2);
+                register_code(KC_ESC);
+                unregister_code(KC_ESC);
             }
+            result = PROCESS_OVERRIDE_BEHAVIOR;
         } break;
         default: {
         } break;
