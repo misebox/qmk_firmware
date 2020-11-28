@@ -139,6 +139,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case ESC_EISU: {
             if (record->event.pressed) {
                 register_code(KC_LANG2);
+                unregister_code(KC_LANG2);
             }
         } break;
         default: {
