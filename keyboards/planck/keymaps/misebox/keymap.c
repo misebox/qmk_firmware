@@ -5,8 +5,8 @@
 enum planck_layers { _QWERTY, _FUNCFULL, _MOVE, _SYMBOL, _TENKEY, _SPECIAL, _KEYBOARD };
 
 enum custom_keycodes {  // Make sure have the awesome keycode ready
-    LT_TENKEY_SFT_TAB = SAFE_RANGE,
-    LT_SPECIAL_TAB,
+    L4_STAB = SAFE_RANGE,
+    L5_TAB,
     ESC_EISU,
 };
 
@@ -14,18 +14,27 @@ enum custom_keycodes {  // Make sure have the awesome keycode ready
 #define PROCESS_OVERRIDE_BEHAVIOR (false)
 #define PROCESS_USUAL_BEHAVIOR (true)
 
+// shortened expression for readability
+#define L1_TAB  LT(1, KC_TAB)
+#define L2_ENT  LT(2, KC_ENT)
+#define L3_BSPC LT(3, KC_BSPC)
+#define CT_EISU LCTL_T(KC_LANG2)
+#define ST_SPC  LSFT_T(KC_SPC)
+
+#define ST_SCLN LSFT_T(KC_SCLN)
+#define S_TAB   LSFT(KC_TAB)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT_planck_grid(
         // Qwerty
         //  ,--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------.
                KC_ESC,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_MINS,
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-              KC_LCTL,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,RSFT_T(KC_SCLN), KC_QUOT,
+              KC_LCTL,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L, ST_SCLN, KC_QUOT,
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
               KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_BSLS,
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-        //  |L4/SFTAB|  LGUI  |  LALT  |CTL/Eisu|L1 / TAB|L3 / SPC|GUI_T/BS|L2/ENTER|CTL/Kana|  RALT  |  RGUI  |L5 / TAB|
-        LT_TENKEY_SFT_TAB, KC_LGUI, KC_LALT, LCTL_T(KC_LANG2), LT(1, KC_TAB), LSFT_T(KC_SPC), LT(3, KC_BSPC), LT(2, KC_ENT), RCTL_T(KC_LANG1), KC_RALT, KC_RGUI, LT_SPECIAL_TAB
+              L4_STAB, KC_LGUI, KC_LALT, CT_EISU,  L1_TAB,  ST_SPC, L3_BSPC,  L2_ENT, KC_RCTL, KC_RALT, KC_RGUI,  L5_TAB
         //  `--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------'
     ),
     [_FUNCFULL] = LAYOUT_planck_grid(
@@ -37,13 +46,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
                 KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,  KC_F12,
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-              KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
+              KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,KC_LANG1, KC_TRNS, KC_TRNS, KC_TRNS
         //  `--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------'
     ),
     [_MOVE] = LAYOUT_planck_grid(
         // Cursor and page transition
         //  ,--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------.
-               KC_ESC,   KC_NO,   KC_NO,   KC_NO,   KC_NO,  KC_NO,KC_PGUP,RSFT(KC_TAB),KC_TAB, KC_PGDN, KC_RCTL, KC_BSPC,
+               KC_ESC,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO, KC_PGUP,   S_TAB,  KC_TAB, KC_PGDN, KC_RCTL, KC_BSPC,
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
               KC_TRNS,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO, KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT,ESC_EISU, KC_RALT,
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
@@ -110,7 +119,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     bool result = PROCESS_USUAL_BEHAVIOR;
     switch (keycode) {
-        case LT_TENKEY_SFT_TAB: {
+        case L4_STAB: {
             if (record->event.pressed) {
                 layer_on(_TENKEY);
             } else {
@@ -124,7 +133,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             result = PROCESS_OVERRIDE_BEHAVIOR;
         } break;
-        case LT_SPECIAL_TAB: {
+        case L5_TAB: {
             if (record->event.pressed) {
                 layer_on(_SPECIAL);
             } else {
