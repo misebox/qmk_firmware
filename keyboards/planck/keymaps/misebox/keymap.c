@@ -8,6 +8,7 @@ enum custom_keycodes {  // Make sure have the awesome keycode ready
     L4_STAB = SAFE_RANGE,
     L5_TAB,
     ESC_EISU,
+    CTL_ESC,
 };
 
 // result of process_record_user
@@ -15,10 +16,9 @@ enum custom_keycodes {  // Make sure have the awesome keycode ready
 #define PROCESS_USUAL_BEHAVIOR (true)
 
 // shortened expression for readability
-#define L1_TAB  LT(1, KC_TAB)
+#define L1_EISU LT(1, KC_LANG2)
 #define L2_ENT  LT(2, KC_ENT)
 #define L3_BSPC LT(3, KC_BSPC)
-#define CT_EISU LCTL_T(KC_LANG2)
 #define ST_SPC  LSFT_T(KC_SPC)
 
 #define ST_SCLN LSFT_T(KC_SCLN)
@@ -34,7 +34,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
               KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_BSLS,
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-              L4_STAB, KC_LGUI, KC_LALT, CT_EISU,  L1_TAB,  ST_SPC, L3_BSPC,  L2_ENT, KC_RCTL, KC_RALT, KC_RGUI,  L5_TAB
+              L4_STAB, KC_LGUI, KC_LALT, CTL_ESC, L1_EISU,  ST_SPC, L3_BSPC,  L2_ENT, KC_RCTL, KC_RALT, KC_RGUI,  L5_TAB
         //  `--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------'
     ),
     [_FULL] = LAYOUT_planck_grid(
@@ -151,6 +151,20 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 unregister_code(KC_LANG2);
                 register_code(KC_ESC);
                 unregister_code(KC_ESC);
+            }
+            result = PROCESS_OVERRIDE_BEHAVIOR;
+        } break;
+        case CTL_ESC: {
+            if (record->event.pressed) {
+                register_code(KC_LCTRL);
+            } else {
+                unregister_code(KC_LCTRL);
+                if (is_tapped) {
+                    register_code(KC_LANG2);
+                    unregister_code(KC_LANG2);
+                    register_code(KC_ESC);
+                    unregister_code(KC_ESC);
+                }
             }
             result = PROCESS_OVERRIDE_BEHAVIOR;
         } break;
