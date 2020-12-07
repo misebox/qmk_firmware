@@ -6,9 +6,9 @@ enum planck_layers { _QWERTY, _FULL, _MOVE, _SYMBOL, _TENFUNC, _SPECIAL, _KEYBOA
 
 enum custom_keycodes {  // Make sure have the awesome keycode ready
     L4_STAB = SAFE_RANGE,
-    L5_TAB,
+    L4_E_ESC,
     ESC_EISU,
-    CTL_ESC,
+    CT_EISU,
 };
 
 // result of process_record_user
@@ -16,9 +16,15 @@ enum custom_keycodes {  // Make sure have the awesome keycode ready
 #define PROCESS_USUAL_BEHAVIOR (true)
 
 // shortened expression for readability
-#define L1_EISU LT(1, KC_LANG2)
+#define C_KANA KC_LANG1
+#define C_EISU KC_LANG2
+#define L1_EISU LT(1, C_EISU)
 #define L2_ENT  LT(2, KC_ENT)
+#define L2_TAB  LT(2, KC_TAB)
 #define L3_BSPC LT(3, KC_BSPC)
+#define L4_ESC  LT(4, KC_ESC)
+#define L5_TAB  LT(5, KC_TAB)
+//#define L5_ENT  LT(5, KC_ENT)
 #define ST_SPC  LSFT_T(KC_SPC)
 
 #define ST_SCLN LSFT_T(KC_SCLN)
@@ -28,13 +34,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT_planck_grid(
         // Qwerty
         //  ,--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------.
-               KC_ESC,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_MINS,
+               KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_MINS,
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
               KC_LCTL,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L, ST_SCLN, KC_QUOT,
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
               KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_BSLS,
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-              L4_STAB, KC_LGUI, KC_LALT, CTL_ESC, L1_EISU,  ST_SPC, L3_BSPC,  L2_ENT, KC_RCTL, KC_RALT, KC_RGUI,  L5_TAB
+             L4_E_ESC, KC_LGUI, KC_LALT, KC_LCTL, L1_EISU,  ST_SPC, L3_BSPC,  L2_ENT, KC_LCTL, KC_LALT, KC_LGUI,  L5_TAB
         //  `--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------'
     ),
     [_FULL] = LAYOUT_planck_grid(
@@ -46,7 +52,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
               _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-              _______, _______, _______, _______, _______, _______, _______, _______,KC_LANG1, _______, _______, _______
+              _______, _______, _______, _______, _______, _______, KC_BSPC,  KC_ENT,  C_KANA, _______, _______,  KC_TAB
         //  `--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------'
     ),
     [_MOVE] = LAYOUT_planck_grid(
@@ -58,7 +64,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
               _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  KC_DEL, KC_HOME,  KC_END, KC_BSPC, KC_RSFT, XXXXXXX,
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-              _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+             ESC_EISU, _______, _______, _______,  C_EISU,  KC_SPC, _______, _______, _______, _______, _______, _______
         //  `--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------'
     ),
     [_SYMBOL] = LAYOUT_planck_grid(
@@ -133,35 +139,37 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             result = PROCESS_OVERRIDE_BEHAVIOR;
         } break;
-        case L5_TAB: {
+        case L4_E_ESC: {
             if (record->event.pressed) {
-                layer_on(_SPECIAL);
+                layer_on(_TENFUNC);
             } else {
-                layer_off(_SPECIAL);
+                layer_off(_TENFUNC);
                 if (is_tapped) {
-                    register_code(KC_TAB);
-                    unregister_code(KC_TAB);
+                    register_code(C_EISU);
+                    unregister_code(C_EISU);
+                    register_code(KC_ESC);
+                    unregister_code(KC_ESC);
                 }
             }
             result = PROCESS_OVERRIDE_BEHAVIOR;
         } break;
         case ESC_EISU: {
             if (record->event.pressed) {
-                register_code(KC_LANG2);
-                unregister_code(KC_LANG2);
+                register_code(C_EISU);
+                unregister_code(C_EISU);
                 register_code(KC_ESC);
                 unregister_code(KC_ESC);
             }
             result = PROCESS_OVERRIDE_BEHAVIOR;
         } break;
-        case CTL_ESC: {
+        case CT_EISU: {
             if (record->event.pressed) {
                 register_code(KC_LCTRL);
             } else {
                 unregister_code(KC_LCTRL);
                 if (is_tapped) {
-                    register_code(KC_LANG2);
-                    unregister_code(KC_LANG2);
+                    register_code(C_EISU);
+                    unregister_code(C_EISU);
                     register_code(KC_ESC);
                     unregister_code(KC_ESC);
                 }
