@@ -70,7 +70,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_MOVE] = LAYOUT_planck_grid(
         // Cursor and page transition
         //  ,--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------.
-               KC_ESC, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PGUP,   S_TAB,  KC_TAB, KC_PGDN, KC_RCTL, KC_BSPC,
+               KC_ESC, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PGDN,   S_TAB,  KC_TAB, KC_PGUP, KC_RCTL, KC_BSPC,
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
               _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, KC_RSFT, KC_RALT,
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
