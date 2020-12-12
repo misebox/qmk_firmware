@@ -16,20 +16,20 @@ enum custom_keycodes {  // Make sure have the awesome keycode ready
 #define PROCESS_USUAL_BEHAVIOR (true)
 
 // shortened expression for readability
-#define C_KANA KC_LANG1
-#define C_EISU KC_LANG2
-#define L1      MO(1)
-#define L1_EISU LT(1, C_EISU)
-#define L2_ENT  LT(2, KC_ENT)
-#define L2_TAB  LT(2, KC_TAB)
-#define L3_BSPC LT(3, KC_BSPC)
-#define L4_ESC  LT(4, KC_ESC)
-#define L5_TAB  LT(5, KC_TAB)
+#define KANA     KC_LANG1
+#define EISU     KC_LANG2
+#define L1       MO(1)
+#define L1_EISU  LT(1, EISU)
+#define L2_ENT   LT(2, KC_ENT)
+#define L2_TAB   LT(2, KC_TAB)
+#define L3_BSPC  LT(3, KC_BSPC)
+#define L4_ESC   LT(4, KC_ESC)
+#define L5_TAB   LT(5, KC_TAB)
 //#define L5_ENT  LT(5, KC_ENT)
 #define SFT_SPC  LSFT_T(KC_SPC)
 
-#define ST_SCLN LSFT_T(KC_SCLN)
-#define S_TAB   LSFT(KC_TAB)
+#define ST_SCLN  LSFT_T(KC_SCLN)
+#define S_TAB    LSFT(KC_TAB)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT_planck_grid(
@@ -53,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
               _______, _______, _______, _______, _______, _______, _______, _______,   KC_LT,   KC_GT, KC_QUES, KC_PIPE,
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-              _______, _______, _______, _______, _______, _______, KC_BSPC,  KC_ENT, _______, _______, _______,  C_KANA
+              _______, _______, _______, _______, _______, _______, KC_BSPC,  KC_ENT, _______, _______, _______,    KANA
         //  `--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------'
     ),
     [_SYMBOL] = LAYOUT_planck_grid(
@@ -65,7 +65,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
               _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_QUOT, KC_DQUO,  KC_GRV, _______, _______,
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-             ESC_EISU, _______, _______, _______,  C_EISU,  KC_SPC, _______, _______, _______, _______, _______, _______
+             ESC_EISU, _______, _______,    EISU, _______,  KC_SPC, _______, _______, _______, _______, _______, _______
         //  `--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------'
     ),
     [_MOVE] = LAYOUT_planck_grid(
@@ -146,8 +146,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             } else {
                 layer_off(_TENFUNC);
                 if (is_tapped) {
-                    register_code(C_EISU);
-                    unregister_code(C_EISU);
+                    register_code(EISU);
+                    unregister_code(EISU);
                     register_code(KC_ESC);
                     unregister_code(KC_ESC);
                 }
@@ -156,8 +156,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         } break;
         case ESC_EISU: {
             if (record->event.pressed) {
-                register_code(C_EISU);
-                unregister_code(C_EISU);
+                register_code(EISU);
+                unregister_code(EISU);
                 register_code(KC_ESC);
                 unregister_code(KC_ESC);
             }
@@ -169,8 +169,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             } else {
                 unregister_code(KC_LCTRL);
                 if (is_tapped) {
-                    register_code(C_EISU);
-                    unregister_code(C_EISU);
+                    register_code(EISU);
+                    unregister_code(EISU);
                 }
             }
             result = PROCESS_OVERRIDE_BEHAVIOR;
