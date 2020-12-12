@@ -8,7 +8,7 @@ enum custom_keycodes {  // Make sure have the awesome keycode ready
     L4_STAB = SAFE_RANGE,
     L4_E_ESC,
     ESC_EISU,
-    CT_EISU,
+    CTL_EISU,
 };
 
 // result of process_record_user
@@ -18,6 +18,7 @@ enum custom_keycodes {  // Make sure have the awesome keycode ready
 // shortened expression for readability
 #define C_KANA KC_LANG1
 #define C_EISU KC_LANG2
+#define L1      MO(1)
 #define L1_EISU LT(1, C_EISU)
 #define L2_ENT  LT(2, KC_ENT)
 #define L2_TAB  LT(2, KC_TAB)
@@ -25,7 +26,7 @@ enum custom_keycodes {  // Make sure have the awesome keycode ready
 #define L4_ESC  LT(4, KC_ESC)
 #define L5_TAB  LT(5, KC_TAB)
 //#define L5_ENT  LT(5, KC_ENT)
-#define ST_SPC  LSFT_T(KC_SPC)
+#define SFT_SPC  LSFT_T(KC_SPC)
 
 #define ST_SCLN LSFT_T(KC_SCLN)
 #define S_TAB   LSFT(KC_TAB)
@@ -40,7 +41,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
               KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_BSLS,
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-             L4_E_ESC, KC_LGUI, KC_LALT, KC_LCTL, L1_EISU,  ST_SPC, L3_BSPC,  L2_ENT, KC_LCTL, KC_LALT, KC_LGUI,  L5_TAB
+             L4_E_ESC, KC_LGUI, KC_LALT,CTL_EISU,      L1, SFT_SPC, L3_BSPC,  L2_ENT, KC_LCTL, KC_LALT, KC_LGUI,  L5_TAB
         //  `--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------'
     ),
     [_FULL] = LAYOUT_planck_grid(
@@ -162,7 +163,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             result = PROCESS_OVERRIDE_BEHAVIOR;
         } break;
-        case CT_EISU: {
+        case CTL_EISU: {
             if (record->event.pressed) {
                 register_code(KC_LCTRL);
             } else {
@@ -170,8 +171,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 if (is_tapped) {
                     register_code(C_EISU);
                     unregister_code(C_EISU);
-                    register_code(KC_ESC);
-                    unregister_code(KC_ESC);
                 }
             }
             result = PROCESS_OVERRIDE_BEHAVIOR;
