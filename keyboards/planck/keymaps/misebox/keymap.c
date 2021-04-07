@@ -87,7 +87,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
               _______,   KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10, KC_PMNS,   KC_P4,   KC_P5,   KC_P6, KC_PPLS, XXXXXXX,
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-              _______,  KC_F11,  KC_F12,  KC_F13,  KC_F14,  KC_F15, KC_NLCK,   KC_P1,   KC_P2,   KC_P3, KC_PEQL, XXXXXXX,
+              _______,  KC_F11,  KC_F12,  KC_F13,  KC_F14,  KC_F15, KC_EXLM,   KC_P1,   KC_P2,   KC_P3, KC_PEQL, XXXXXXX,
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
               _______, _______, _______, _______, _______, _______, _______,   KC_P0, KC_COMM, KC_PDOT, KC_PENT,   MO(6)
         //  `--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------'
@@ -109,9 +109,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //  ,--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------.
                 RESET,   DEBUG, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-              KC_CAPS, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_NLCK,
+              KC_CAPS, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-              XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+              XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_NLCK, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         //  |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
               _______, XXXXXXX, LCG_SWP,  MU_MOD,  MUV_DE, MU_OFF,    MU_ON,  MUV_IN,  MU_MOD, LCG_NRM, XXXXXXX, _______
         //  `--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------'
